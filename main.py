@@ -5,9 +5,13 @@ from aiogram import Bot, Dispatcher, types
 from aiogram.contrib.fsm_storage.memory import MemoryStorage
 from aiogram.utils import executor
 import logging
+from dotenv import load_dotenv  # .env faylni yuklash uchun
+
+# .env fayldan ma'lumotlarni yuklash
+load_dotenv()
 
 # Telegram bot token
-TELEGRAM_TOKEN = "7404596976:AAGRG0-P1R2cXRW9tDTHDTgZKoDoOZI9xbQ"
+TELEGRAM_TOKEN = os.getenv("TELEGRAM_TOKEN")
 bot = Bot(token=TELEGRAM_TOKEN)
 storage = MemoryStorage()
 dp = Dispatcher(bot, storage=storage)
